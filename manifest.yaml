@@ -13,8 +13,6 @@ containers:
     repository:
       url: https://github.com/urbn/TokenService.git
       branch: docker
-    volumes:
-      - "/var/log/python-services:/var/log/python-services"
 
 
   - name: MongoDB
