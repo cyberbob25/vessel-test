@@ -9,13 +9,11 @@ containers:
     image: 10.9.8.205:8080/centos/token-service:localdev
     ports:
       - 7000
-    dependencies:
-      - MongoDB
     repository:
       url: https://github.com/urbn/TokenService.git
       branch: docker
     env:
-      - DEPLOY_LOCAL:1
+      - DEPLOY_LOCAL=1
 
 
   - name: MongoDB
