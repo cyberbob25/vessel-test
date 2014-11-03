@@ -7,7 +7,7 @@ containers:
     icon: nodejs
     image: 10.9.8.205:8080/centos/token-service:localdev
     env:
-      - "LOCAL=1"
+      - DEPLOY_LOCAL=1
     ports:
       - 7000
     repository:
