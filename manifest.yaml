@@ -2,13 +2,12 @@
 ---
 containers:
 
-
   - name: TokenService
     category: Application
     icon: nodejs
     image: 10.9.8.205:8080/centos/token-service:localdev
     env:
-      - LOCAL=1
+      - "LOCAL=1"
     ports:
       - 7000
     repository:
