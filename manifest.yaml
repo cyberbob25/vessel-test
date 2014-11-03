@@ -12,7 +12,7 @@ containers:
     dependencies:
       - MongoDB
     repository:
-      url: git@github.com:urbn/TokenService.git
+      url: https://urbndeployer:99eropLL@github.com:urbn/TokenService.git
       branch: dev
 
 
