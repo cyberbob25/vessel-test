@@ -15,7 +15,7 @@ containers:
       url: https://github.com/urbn/TokenService.git
       branch: docker
     env:
-      DEPLOY_LOCAL:1
+      - DEPLOY_LOCAL:1
 
 
   - name: MongoDB
