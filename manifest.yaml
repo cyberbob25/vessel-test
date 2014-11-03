@@ -12,7 +12,8 @@ containers:
     dependencies:
       - MongoDB
     repository:
-      url: https://github.com:urbn/TokenService.git
+      url: https://github.com/urbn/TokenService.git
+      repo: dev
 
 
   - name: MongoDB
