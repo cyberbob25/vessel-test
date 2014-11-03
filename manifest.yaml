@@ -6,7 +6,7 @@ containers:
   - name: TokenService
     category: Application
     icon: nodejs
-    image: centos/token-service:localdev
+    image: 10.9.8.205:8080/centos/token-service:localdev
     ports:
       - 7000
     repository:
@@ -16,7 +16,7 @@ containers:
   - name: MongoDB
     category: Low-Level
     icon: mongodb
-    image: centos/mongo:2.6
+    image: 10.9.8.205:8080/centos/mongo:2.6
     volumes: 
       - /var/lib/mongo
       - /var/log/mongodb
