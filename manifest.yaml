@@ -4,7 +4,7 @@ containers:
 
   - name: TokenService
     category: Application
-    icon: nodejs
+    icon: tornado
     image: 10.9.8.205:8080/centos/token-service:localdev
     env:
       - DEPLOY_LOCAL=1
