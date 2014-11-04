@@ -20,7 +20,7 @@ containers:
   - name: ElasticMQ
     category: Low-Level
     icon: mongodb
-    image: 10.9.8.205:8080/centos/elasticmq:0.8.4
+    image: 10.9.8.205:8080/centos/elasticmq:0.8.2
     ports: 
       - 9324
 
