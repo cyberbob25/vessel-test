@@ -13,8 +13,24 @@ containers:
     repository:
       url: https://github.com/urbn/TokenService.git
       branch: docker
+
+
+  - name: BasketService
+    category: Application
+    icon: tornado
+    image: 10.9.8.205:8080/centos/basket-service:localdev
+    env:
+      - DEPLOY_LOCAL=1
+    ports:
+      - 7010
+    repository:
+      url: https://github.com/urbn/BasketService.git
+      branch: docker
     dependencies:
+      - MongoDB
       - ElasticMQ
+      - TokenService
+
 
 
   - name: ElasticMQ
@@ -32,8 +48,21 @@ containers:
     volumes: 
       - /var/lib/mongo
       - /var/log/mongodb
+    dependencies:
+      - MongoDB_data
     ports:
       - 27017
+
+
+
+  - name: MongoDB_data
+    image: 10.9.8.205:8080/centos/mongo:2.6
+    standalone: true
+    visible: false
+    volumes: 
+      - /var/lib/mongo
+  
+
 
 
 
