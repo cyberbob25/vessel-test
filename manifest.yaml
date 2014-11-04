@@ -45,9 +45,6 @@ containers:
     category: Low-Level
     icon: mongodb
     image: 10.9.8.205:8080/centos/mongo:2.6
-    volumes: 
-      - /var/lib/mongo
-      - /var/log/mongodb
     dependencies:
       - MongoDB_data
     ports:
