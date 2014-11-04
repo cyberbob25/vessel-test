@@ -13,6 +13,16 @@ containers:
     repository:
       url: https://github.com/urbn/TokenService.git
       branch: docker
+    dependencies:
+      - ElasticMQ
+
+
+  - name: ElasticMQ
+    category: Low-Level
+    icon: mongodb
+    image: 10.9.8.205:8080/centos/elasticmq:0.8.4
+    ports: 
+      - 9324
 
 
   - name: MongoDB
