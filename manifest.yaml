@@ -2,39 +2,26 @@
 ---
 containers:
 
-  - name: TokenService
-    category: Application
-    icon: tornado
-    image: 10.9.8.205:8080/centos/token-service:localdev
-    env:
-      - DEPLOY_LOCAL=1
-    ports:
-      - 7000
-    repository:
-      url: https://github.com/urbn/TokenService.git
-      branch: docker
-    dependencies:
-      - ElasticMQ
-
-
-  - name: ElasticMQ
-    category: Low-Level
-    icon: mongodb
-    image: 10.9.8.205:8080/centos/elasticmq:0.8.2
-    ports: 
-      - 9324
-
 
   - name: MongoDB
     category: Low-Level
     icon: mongodb
     image: 10.9.8.205:8080/centos/mongo:2.6
-    volumes: 
-      - /var/lib/mongo
-      - /var/log/mongodb
+    dependencies:
+      - MongoDB_data
     ports:
       - 27017
 
+
+
+
+  - name: MongoDB_data
+    image: 10.9.8.205:8080/centos/volumes
+    standalone: true
+    visible: false
+    volumes: 
+      - /var/lib/mongo
+      - /var/log/mongodb
 
 
 docker:
