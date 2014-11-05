@@ -2,6 +2,12 @@
 ---
 containers:
 
+  - name: ElasticMQ
+    category: Low-Level
+    icon: centos
+    image: 10.9.8.205:8080/centos/elasticmq:0.8.2
+    ports: 
+      - 9324
 
   - name: MongoDB
     category: Low-Level
@@ -9,6 +15,7 @@ containers:
     image: 10.9.8.205:8080/centos/mongo:2.6
     dependencies:
       - MongoDB_data
+      - Container_logs
     ports:
       - 27017
 
@@ -21,7 +28,15 @@ containers:
     visible: false
     volumes: 
       - "/var/lib/mongo"
+
+  - name: Container_logs
+    image: 10.9.8.205:8080/centos/volumes
+    standalone: true
+    visible: false
+    volumes: 
+      - "/var/log/python-services"
       - "/var/log/mongodb"
+
 
 
 docker:
