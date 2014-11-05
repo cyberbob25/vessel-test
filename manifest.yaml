@@ -13,7 +13,8 @@ containers:
     repository:
       url: https://github.com/urbn/TokenService.git
       branch: docker
-
+    dependencies:
+      - Python_logs
 
   - name: BasketService
     category: Application
@@ -30,16 +31,17 @@ containers:
       - MongoDB
       - ElasticMQ
       - TokenService
+      - Python_logs
+
 
 
 
   - name: ElasticMQ
     category: Low-Level
-    icon: mongodb
+    icon: centos
     image: 10.9.8.205:8080/centos/elasticmq:0.8.2
     ports: 
       - 9324
-
 
   - name: MongoDB
     category: Low-Level
@@ -52,12 +54,21 @@ containers:
 
 
 
+
   - name: MongoDB_data
-    image: 10.9.8.205:8080/centos/mongo:2.6
+    image: 10.9.8.205:8080/centos/volumes
     standalone: true
     visible: false
     volumes: 
       - /var/lib/mongo
+      - /var/log/mongodb
+  
+  - name: Python-logs
+    image: 10.9.8.205:8080/centos/volumes
+    standalone: true
+    visible: false
+    volumes: 
+      - /var/log/python-services
   
 
 
