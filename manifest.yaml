@@ -2,6 +2,23 @@
 ---
 containers:
 
+  - name: TokenService
+    category: Application
+    icon: tornado
+    image: 10.9.8.205:8080/centos/token-service:localdev
+    env:
+      - DEPLOY_LOCAL=1
+    ports:
+      - 7000
+    repository:
+      url: https://github.com/urbn/TokenService.git
+      branch: docker
+    dependencies:
+      - Container_logs
+
+
+
+
   - name: ElasticMQ
     category: Low-Level
     icon: centos
