@@ -20,8 +20,8 @@ containers:
     standalone: true
     visible: false
     volumes: 
-      - /var/lib/mongo
-      - /var/log/mongodb
+      - "/var/lib/mongo"
+      - "/var/log/mongodb"
 
 
 docker:
