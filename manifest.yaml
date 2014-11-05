@@ -16,6 +16,23 @@ containers:
     dependencies:
       - Container_logs
 
+  - name: BasketService
+    category: Application
+    icon: tornado
+    image: 10.9.8.205:8080/centos/basket-service:localdev
+    env:
+      - DEPLOY_LOCAL=1
+    ports:
+      - 7010
+    repository:
+      url: https://github.com/urbn/BasketService.git
+      branch: docker
+    dependencies:
+      - MongoDB
+      - ElasticMQ
+      - TokenService
+      - Container_logs
+
 
 
 
