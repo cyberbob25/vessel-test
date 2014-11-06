@@ -18,6 +18,7 @@ containers:
       - ElasticMQ
       - TokenService
       - Container_logs
+      - EDTS
 
   - name: TokenService
     category: Application
