@@ -2,20 +2,6 @@
 ---
 containers:
 
-  - name: TokenService
-    category: Application
-    icon: tornado
-    image: 10.9.8.205:8080/centos/token-service:localdev
-    env:
-      - DEPLOY_LOCAL=1
-    ports:
-      - 7000
-    repository:
-      url: https://github.com/urbn/TokenService.git
-      branch: docker
-    dependencies:
-      - Container_logs
-
   - name: BasketService
     category: Application
     icon: tornado
@@ -31,6 +17,37 @@ containers:
       - MongoDB
       - ElasticMQ
       - TokenService
+      - Container_logs
+
+  - name: TokenService
+    category: Application
+    icon: tornado
+    image: 10.9.8.205:8080/centos/token-service:localdev
+    env:
+      - DEPLOY_LOCAL=1
+    ports:
+      - 7000
+    repository:
+      url: https://github.com/urbn/TokenService.git
+      branch: docker
+    dependencies:
+      - Container_logs
+
+  - name: EDTS
+    category: Application
+    icon: tomcat
+    image: 10.9.8.205:8080/centos/edts-rest:latest
+    env:
+      - BRAND=fp
+      - ENV=local
+      - COUNTRY=us
+      - VERSION=1
+    ports: 
+      - 8080
+    repository:
+      url: https://github.com/urbn/EDTS-REST.git
+      branch: develop
+    dependencies:
       - Container_logs
 
 
@@ -62,6 +79,7 @@ containers:
     visible: false
     volumes: 
       - "/var/lib/mongo"
+      - "/opt/datafiles"
 
   - name: Container_logs
     image: 10.9.8.205:8080/centos/volumes
@@ -70,6 +88,7 @@ containers:
     volumes: 
       - "/var/log/python-services"
       - "/var/log/mongodb"
+      - "/var/log/tomcat"
 
 
 
