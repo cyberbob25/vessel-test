@@ -49,6 +49,7 @@ containers:
       url: https://github.com/urbn/EDTS-REST.git
       branch: develop
     dependencies:
+      - MongoDB
       - Container_logs
 
 
